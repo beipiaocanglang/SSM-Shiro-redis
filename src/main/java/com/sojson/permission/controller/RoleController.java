@@ -75,7 +75,7 @@ public class RoleController extends BaseController {
 	}
 	/**
 	 * 删除角色，根据ID，但是删除角色的时候，需要查询是否有赋予给用户，如果有用户在使用，那么就不能删除。
-	 * @param id
+	 * @param ids
 	 * @return
 	 */
 	@RequestMapping(value="deleteRoleById",method=RequestMethod.POST)

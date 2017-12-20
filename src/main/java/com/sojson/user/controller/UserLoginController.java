@@ -142,7 +142,7 @@ public class UserLoginController extends BaseController {
 			 */
 			LoggerUtils.fmtDebug(getClass(), "获取登录之前的URL:[%s]",url);
 			//如果登录之前没有地址，那么就跳转到首页。
-			if(StringUtils.isBlank(url)){
+			if(StringUtils.isBlank(url) || url.equals("/shiro.demo/")){
 				url = request.getContextPath() + "/user/index.shtml";
 			}
 			//跳转地址

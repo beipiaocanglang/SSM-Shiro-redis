@@ -81,6 +81,7 @@ public class UserRoleAllocationController extends BaseController {
 	public Map<String,Object> addRole2User(Long userId,String ids){
 		return userService.addRole2User(userId,ids);
 	}
+
 	/**
 	 * 根据用户id清空角色。
 	 * @param userIds	用户ID ，以‘,’间隔
