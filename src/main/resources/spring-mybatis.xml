@@ -4,13 +4,17 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="
-    		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
-			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
-			>
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-4.0.xsd
+						http://www.springframework.org/schema/jee
+						http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
 	<!-- 自动扫描(自动注入) -->
 	<context:component-scan base-package="com.sojson.*.service;com.sojson.*.*.service"/>
 	<context:component-scan base-package="com.sojson.common.timer"/>
@@ -20,7 +24,7 @@
 	</bean>
 	<!-- 配置数据源 -->
 	<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-<!--		<property name="driverClassName" value="${jdbc.driverClassName}" /> -->
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" /> 
 		<property name="username" value="${jdbc.username}" /> 
 		<property name="password" value="${jdbc.password}" /> 
@@ -36,7 +40,7 @@
 	    <property name="testOnReturn" value="${jdbc.testOnReturn}" /> 
 	    <property name="removeAbandoned" value="${jdbc.removeAbandoned}" /> 
 	    <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}" /> 
-<!--	    <property name="logAbandoned" value="${jdbc.logAbandoned}" /> -->
+		<!-- <property name="logAbandoned" value="${jdbc.logAbandoned}" /> -->
 	    <property name="filters" value="${jdbc.filters}" />
 		<!-- 关闭abanded连接时输出错误日志 -->
 		<property name="logAbandoned" value="true" />
@@ -45,10 +49,9 @@
 	            <ref bean="log-filter"/>
 	        </list>
 	    </property>
-
 		<!-- 监控数据库 -->
 		<!-- <property name="filters" value="stat" /> -->
-<!--		<property name="filters" value="mergeStat" />-->
+		<!-- <property name="filters" value="mergeStat" />-->
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -71,9 +74,10 @@
 		<property name="basePackage" value="com.sojson.common.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
-	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-	     <property name="dataSource" ref="dataSource" />
-	 </bean>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="publish*" />
@@ -85,22 +89,20 @@
 			<tx:method name="del*" />
 			<tx:method name="load*" />
 			<tx:method name="init*" />
-
-
-
-
 			<tx:method name="*"  read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
+
  	<!-- AOP配置--> 
 	<aop:config>
-		<aop:pointcut id="myPointcut"
-			expression="execution(public * com.sojson.*.service.impl.*.*(..))" />
+		<aop:pointcut id="myPointcut" expression="execution(public * com.sojson.*.service.impl.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
 	</aop:config>
-<!--	<aop:config>-->
-<!--		<aop:pointcut id="myPointcut"-->
-<!--			expression="execution(public * net.wenyifan.*.service.*.*(..))" />-->
-<!--		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />-->
-<!--	</aop:config>-->
+	<!--
+		<aop:config>
+			<aop:pointcut id="myPointcut"
+				expression="execution(public * net.wenyifan.*.service.*.*(..))" />
+			<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
+		</aop:config>
+	-->
 </beans>

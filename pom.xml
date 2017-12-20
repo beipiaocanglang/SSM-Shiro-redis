@@ -16,6 +16,18 @@
 
 	<build>
 		<plugins>
+			<!--maven内置tomcat插件-->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<!-- 定义项目发布路径，相当于把项目放入tomcat的ROOT目录 访问项目时：不需要使用项目名称，直接使用路径访问 -->
+					<path>/</path>
+					<port>8089</port>
+					<uriEncoding>utf-8</uriEncoding>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -26,6 +38,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<!--加载mybatis的mapper.xml配置文件-->
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

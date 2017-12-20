@@ -2,22 +2,17 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-  
-  <settings>		
-    <setting name="defaultExecutorType" value="REUSE" />
-  </settings>
+    <settings>
+        <setting name="defaultExecutorType" value="REUSE" />
+    </settings>
  
-  <typeAliases>
-  	
-  </typeAliases>
-  
- <!-- 
- <mappers>
-    <mapper resource="mapper/StudentMapper.xml"/>
- </mappers>
-    <plugins>  
-       <plugin interceptor="net.wenyifan.common.mybatis.plugin.PageInterceptor">    
-       </plugin>  
-    </plugins>    
--->
+    <typeAliases></typeAliases>
+
+    <!--<plugins>
+      <plugin interceptor="net.wenyifan.common.mybatis.plugin.PageInterceptor">
+      </plugin>
+    </plugins>
+    <mappers>
+        <mapper resource="mapper/StudentMapper.xml"/>
+    </mappers>-->
 </configuration>
