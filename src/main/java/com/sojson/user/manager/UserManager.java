@@ -62,8 +62,5 @@ public class UserManager {
 			resultData.add(map);
 		}
 		return resultData;
-		
 	}
-	
-	
 }

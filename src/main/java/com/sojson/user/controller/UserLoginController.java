@@ -125,8 +125,7 @@ public class UserLoginController extends BaseController {
 			entity = TokenManager.login(entity,rememberMe);
 			resultMap.put("status", 200);
 			resultMap.put("message", "登录成功");
-			
-			
+
 			/**
 			 * shiro 获取登录之前的地址
 			 * 之前0.1版本这个没判断空。

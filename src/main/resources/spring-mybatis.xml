@@ -39,19 +39,17 @@
 	    <property name="testOnBorrow" value="${jdbc.testOnBorrow}" /> 
 	    <property name="testOnReturn" value="${jdbc.testOnReturn}" /> 
 	    <property name="removeAbandoned" value="${jdbc.removeAbandoned}" /> 
-	    <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}" /> 
-		<!-- <property name="logAbandoned" value="${jdbc.logAbandoned}" /> -->
-	    <property name="filters" value="${jdbc.filters}" />
+	    <property name="removeAbandonedTimeout" value="${jdbc.removeAbandonedTimeout}" />
 		<!-- 关闭abanded连接时输出错误日志 -->
-		<property name="logAbandoned" value="true" />
+		<property name="logAbandoned" value="${jdbc.logAbandoned}" />
+		<!-- 监控数据库 -->
+		<property name="filters" value="${jdbc.filters}" />
+
 		<property name="proxyFilters">
 	        <list>
 	            <ref bean="log-filter"/>
 	        </list>
 	    </property>
-		<!-- 监控数据库 -->
-		<!-- <property name="filters" value="stat" /> -->
-		<!-- <property name="filters" value="mergeStat" />-->
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
