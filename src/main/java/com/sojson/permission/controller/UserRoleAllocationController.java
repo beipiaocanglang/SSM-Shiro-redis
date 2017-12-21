@@ -42,8 +42,10 @@ import com.sojson.user.service.UUserService;
 public class UserRoleAllocationController extends BaseController {
 	@Autowired
 	UUserService userService;
+
 	@Autowired
 	PermissionService permissionService;
+
 	/**
 	 * 用户角色权限分配
 	 * @param modelMap

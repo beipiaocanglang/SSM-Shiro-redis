@@ -47,8 +47,10 @@ public class SampleRealm extends AuthorizingRealm {
 
 	@Autowired
 	UUserService userService;
+
 	@Autowired
 	PermissionService permissionService;
+
 	@Autowired
 	RoleService roleService;
 	
@@ -58,8 +60,7 @@ public class SampleRealm extends AuthorizingRealm {
 	/**
 	 *  认证信息，主要针对用户登录， 
 	 */
-	protected AuthenticationInfo doGetAuthenticationInfo(
-			AuthenticationToken authcToken) throws AuthenticationException {
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		
 		ShiroToken token = (ShiroToken) authcToken;
 		UUser user = userService.login(token.getUsername(),token.getPswd());
@@ -99,16 +100,14 @@ public class SampleRealm extends AuthorizingRealm {
      */
 	public  void clearCachedAuthorizationInfo() {
 		PrincipalCollection principalCollection = SecurityUtils.getSubject().getPrincipals();
-		SimplePrincipalCollection principals = new SimplePrincipalCollection(
-				principalCollection, getName());
+		SimplePrincipalCollection principals = new SimplePrincipalCollection(principalCollection, getName());
 		super.clearCachedAuthorizationInfo(principals);
 	}
 	/**
 	 * 指定principalCollection 清除
 	 */
 	public void clearCachedAuthorizationInfo(PrincipalCollection principalCollection) {
-		SimplePrincipalCollection principals = new SimplePrincipalCollection(
-				principalCollection, getName());
+		SimplePrincipalCollection principals = new SimplePrincipalCollection(principalCollection, getName());
 		super.clearCachedAuthorizationInfo(principals);
 	}
 }

@@ -42,8 +42,7 @@ import com.sojson.core.shiro.session.SessionStatus;
 public class SimpleAuthFilter extends AccessControlFilter {
 
 	@Override
-	protected boolean isAccessAllowed(ServletRequest request,
-			ServletResponse response, Object mappedValue) throws Exception {
+	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
 
 		HttpServletRequest httpRequest = ((HttpServletRequest)request);
 		String url = httpRequest.getRequestURI();
@@ -68,8 +67,7 @@ public class SimpleAuthFilter extends AccessControlFilter {
 	}
 
 	@Override
-	protected boolean onAccessDenied(ServletRequest request,
-			ServletResponse response) throws Exception {
+	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
 		
 		//先退出
 		Subject subject = getSubject(request, response);
@@ -89,8 +87,7 @@ public class SimpleAuthFilter extends AccessControlFilter {
 		return false;
 	}
 
-	private void out(ServletResponse hresponse, Map<String, String> resultMap)
-			throws IOException {
+	private void out(ServletResponse hresponse, Map<String, String> resultMap) throws IOException {
 		hresponse.setCharacterEncoding("UTF-8");
 		PrintWriter out = hresponse.getWriter();
 		out.println(JSONObject.fromObject(resultMap).toString());

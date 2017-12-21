@@ -43,9 +43,7 @@ public class TokenManager {
 		UUser token = (UUser)SecurityUtils.getSubject().getPrincipal();
 		return token ;
 	}
-	
-	
-	
+
 	/**
 	 * 获取当前用户的Session
 	 * @return
@@ -92,8 +90,7 @@ public class TokenManager {
 		getSession().removeAttribute("CODE");
 		return code ;
 	}
-	
-	
+
 	/**
 	 * 登录
 	 * @param user
@@ -106,7 +103,6 @@ public class TokenManager {
 		SecurityUtils.getSubject().login(token);
 		return getToken();
 	}
-
 
 	/**
 	 * 判断是否登录
@@ -153,7 +149,7 @@ public class TokenManager {
 	
 	/**
 	 * 根据UserIds 	清空权限信息。
-	 * @param id	用户ID
+	 * @param userIds	用户ID
 	 */
 	public static void clearUserAuthByUserId(Long...userIds){
 		
@@ -164,7 +160,6 @@ public class TokenManager {
 			realm.clearCachedAuthorizationInfo(simplePrincipalCollection);
 		}
 	}
-
 
 	/**
 	 * 方法重载

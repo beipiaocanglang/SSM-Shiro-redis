@@ -22,7 +22,6 @@ public class URoleBo extends URole implements Serializable{
 	public String getMarker() {
 		return marker;
 	}
-
 	public void setMarker(String marker) {
 		this.marker = marker;
 	}
@@ -32,5 +31,4 @@ public class URoleBo extends URole implements Serializable{
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
 }

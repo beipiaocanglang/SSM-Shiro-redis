@@ -57,8 +57,7 @@ public class VerifyCodeUtils{
   
     /** 
      * 使用系统默认字符源生成验证码 
-     * @param verifySize    验证码长度 
-     * @return 
+     * @return
      */  
     public static Verify generateVerify(){  
     	int number1 = new Random().nextInt(10) + 1;;
@@ -291,8 +290,7 @@ public class VerifyCodeUtils{
                 g.drawLine((int) d, i, 0, i);  
                 g.drawLine((int) d + w1, i, w1, i);  
             }  
-        }  
-  
+        }
     }  
   
     private static void shearY(Graphics g, int w1, int h1, Color color) {  
@@ -312,10 +310,8 @@ public class VerifyCodeUtils{
                 g.setColor(color);  
                 g.drawLine(i, (int) d, i, 0);  
                 g.drawLine(i, (int) d + h1, i, h1);  
-            }  
-  
-        }  
-  
+            }
+        }
     }  
     public static void main(String[] args) throws IOException{  
         File dir = new File("F:/verifies");  
@@ -325,7 +321,5 @@ public class VerifyCodeUtils{
             File file = new File(dir, verifyCode + ".jpg");  
             outputImage(w, h, file, verifyCode);  
         }  
-    }  
-    
-   
+    }
 }  

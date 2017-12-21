@@ -35,12 +35,9 @@ import freemarker.template.TemplateModelException;
 @SuppressWarnings("unchecked")
 public abstract class WYFTemplateModel implements TemplateDirectiveModel{
 
-	
 	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-			TemplateDirectiveBody body) throws TemplateException, IOException {
-		
-		
+	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body) throws TemplateException, IOException {
+
 		/**
 		 * 模版方法模式，把变化委派下去，交给子类实现！
 		 */

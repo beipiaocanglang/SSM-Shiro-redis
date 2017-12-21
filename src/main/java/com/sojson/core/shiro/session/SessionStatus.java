@@ -38,6 +38,4 @@ public class SessionStatus implements Serializable {
 	public void setOnlineStatus(Boolean onlineStatus) {
 		this.onlineStatus = onlineStatus;
 	}
-	
-	
 }

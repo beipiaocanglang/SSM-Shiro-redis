@@ -34,7 +34,6 @@ public class IConfig {
 		} catch (IOException e) {
 			LoggerUtils.fmtError(IConfig.class,e, "加载文件异常，文件路径：%s", FILE_NAME);
 		}
-		
 	}
 	
 	/**
@@ -49,11 +48,8 @@ public class IConfig {
 		}
 		return config;
 	}
-	
-	/**
-	 */
+
 	public static String get(String key){
 		return prop.getProperty(key);
 	}
-	
 }

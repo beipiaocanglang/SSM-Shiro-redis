@@ -58,6 +58,4 @@ public class LoginFilter  extends AccessControlFilter {
 		saveRequestAndRedirectToLogin(request, response);
 		return Boolean.FALSE ;
 	}
-	
-
 }

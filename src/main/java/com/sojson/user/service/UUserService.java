@@ -28,15 +28,13 @@ public interface UUserService {
 
 	UUser findUserByEmail(String email);
 
-	Pagination<UUser> findByPage(Map<String, Object> resultMap, Integer pageNo,
-			Integer pageSize);
+	Pagination<UUser> findByPage(Map<String, Object> resultMap, Integer pageNo, Integer pageSize);
 
 	Map<String, Object> deleteUserById(String ids);
 
 	Map<String, Object> updateForbidUserById(Long id, Long status);
 
-	Pagination<UserRoleAllocationBo> findUserAndRole(ModelMap modelMap,
-			Integer pageNo, Integer pageSize);
+	Pagination<UserRoleAllocationBo> findUserAndRole(ModelMap modelMap, Integer pageNo, Integer pageSize);
 
 	List<URoleBo> selectRoleByUserId(Long id);
 

@@ -61,17 +61,16 @@ public class RoleServiceImpl extends BaseMybatisDao<URoleMapper> implements Role
 		return roleMapper.updateByPrimaryKeySelective(record);
 	}
 
-	
 	@Override
-	public Pagination<URole> findPage(Map<String, Object> resultMap,
-			Integer pageNo, Integer pageSize) {
+	public Pagination<URole> findPage(Map<String, Object> resultMap, Integer pageNo, Integer pageSize) {
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
+
 	@Override
-	public Pagination<RolePermissionAllocationBo> findRoleAndPermissionPage(
-			Map<String, Object> resultMap, Integer pageNo, Integer pageSize) {
+	public Pagination<RolePermissionAllocationBo> findRoleAndPermissionPage(Map<String, Object> resultMap, Integer pageNo, Integer pageSize) {
 		return super.findPage("findRoleAndPermission", "findCount", resultMap, pageNo, pageSize);
 	}
+
 	@Override
 	public Map<String, Object> deleteRoleById(String ids) {
 		Map<String,Object> resultMap = new HashMap<String,Object>();
@@ -116,6 +115,7 @@ public class RoleServiceImpl extends BaseMybatisDao<URoleMapper> implements Role
 		map.put("userId", TokenManager.getUserId());
 		return roleMapper.findNowAllPermission(map);
 	}
+
 	/**
 	 * 每20分钟执行一次
 	 */
@@ -123,5 +123,4 @@ public class RoleServiceImpl extends BaseMybatisDao<URoleMapper> implements Role
 	public void initData() {
 		roleMapper.initData();
 	}
-	
 }

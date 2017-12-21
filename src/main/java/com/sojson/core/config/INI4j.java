@@ -9,14 +9,7 @@ import java.util.Map;
 
 import org.springframework.core.io.ClassPathResource;
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
  * 有序读取 ini配置文件
- * 
  * <p>
  * 
  * 区分　责任人　日期　　　　说明<br/>
@@ -25,7 +18,6 @@ import org.springframework.core.io.ClassPathResource;
  * @author zhou-baicheng
  * @email  so@sojson.com
  * @version 1.0,2016年6月2日 <br/>
- * 
  */
 public class INI4j {
     
@@ -120,8 +112,7 @@ public class INI4j {
         Map<String, String> childMap = coreMap.get(currentSection);
         childMap.put(key, value);
     }
- 
- 
+
     /**
      * 增加Section
      * @param section
@@ -146,9 +137,7 @@ public class INI4j {
         }
         return null;
     }
-     
-     
-     
+
     /**
      * 获取配置文件指定Section的子键和值
      * @param section
@@ -165,6 +154,5 @@ public class INI4j {
     public LinkedHashMap<String, LinkedHashMap<String, String>> get(){
         return coreMap;
     }
-     
 }
 
