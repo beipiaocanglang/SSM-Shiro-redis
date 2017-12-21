@@ -36,8 +36,7 @@ public class APITemplateModel extends WYFTemplateModel {
 
 	@Override
 	@SuppressWarnings({  "unchecked" })
-	protected Map<String, TemplateModel> putValue(Map params)
-			throws TemplateModelException {
+	protected Map<String, TemplateModel> putValue(Map params) throws TemplateModelException {
 		
 		Map<String, TemplateModel> paramWrap = null ;
 		if(null != params && params.size() != 0 || null != params.get(Constant.TARGET)){
@@ -58,10 +57,4 @@ public class APITemplateModel extends WYFTemplateModel {
 		}
 		return paramWrap;
 	}
-
-	
-	
-	
-	
-	
 }

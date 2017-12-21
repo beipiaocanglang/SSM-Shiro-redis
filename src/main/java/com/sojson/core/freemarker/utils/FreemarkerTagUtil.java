@@ -9,9 +9,6 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
-
-
-
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>
@@ -34,8 +31,7 @@ import freemarker.template.TemplateModelException;
 public class FreemarkerTagUtil {
 
 	public static final String OUT_TAG_NAME = "outTagName" ;
-	
-	
+
 	/**
 	 * 统一转换模型
 	 * @param env
@@ -43,9 +39,7 @@ public class FreemarkerTagUtil {
 	 * @return
 	 * @throws TemplateException
 	 */
-	public static Map<String, TemplateModel> convertToTemplateModel(
-			Environment env, Map<String, TemplateModel> maps)
-			throws TemplateException {
+	public static Map<String, TemplateModel> convertToTemplateModel(Environment env, Map<String, TemplateModel> maps) throws TemplateException {
 		Map<String, TemplateModel> origMap = new HashMap<String, TemplateModel>();
 		if (maps.size() <= 0) {
 			return origMap;
@@ -84,7 +78,6 @@ public class FreemarkerTagUtil {
 			env.setVariable(key, entry.getValue());
 		}
 		return origMap;
-		
 	}
 	/**
 	 * 清除变量值
@@ -94,9 +87,7 @@ public class FreemarkerTagUtil {
 	 * @param origMap
 	 * @throws TemplateException
 	 */
-	public static void clearTempleModel(Environment env,
-			Map<String, TemplateModel> params,
-			Map<String, TemplateModel> origMap) throws TemplateException {
+	public static void clearTempleModel(Environment env, Map<String, TemplateModel> params, Map<String, TemplateModel> origMap) throws TemplateException {
 		if (params.size() <= 0) {
 			return;
 		}
@@ -104,5 +95,4 @@ public class FreemarkerTagUtil {
 			env.setVariable(key, origMap.get(key));
 		}
 	}
-	
 }

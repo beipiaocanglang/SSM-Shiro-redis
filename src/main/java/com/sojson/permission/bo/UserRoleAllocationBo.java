@@ -15,6 +15,7 @@ public class UserRoleAllocationBo extends UUser implements Serializable {
 	private String roleNames;
 	//Role Id列转行，以‘,’分割
 	private String roleIds;
+
 	public String getRoleNames() {
 		return roleNames;
 	}
@@ -27,5 +28,4 @@ public class UserRoleAllocationBo extends UUser implements Serializable {
 	public void setRoleIds(String roleIds) {
 		this.roleIds = roleIds;
 	}
-	
 }

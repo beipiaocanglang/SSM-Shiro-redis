@@ -34,7 +34,6 @@ public class QQConfig {
 		} catch (IOException e) {
 			LoggerUtils.fmtError(QQConfig.class,e, "加载文件异常，文件路径：%s", FILE_NAME);
 		}
-		
 	}
 	
 	/**
@@ -49,9 +48,7 @@ public class QQConfig {
 		}
 		return config;
 	}
-	
-	/**
-	 */
+
 	public static String get(String key){
 		return prop.getProperty(key);
 	}

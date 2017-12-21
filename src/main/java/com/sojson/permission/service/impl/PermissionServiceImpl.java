@@ -21,11 +21,14 @@ import com.sojson.core.mybatis.page.Pagination;
 import com.sojson.core.shiro.token.manager.TokenManager;
 import com.sojson.permission.bo.UPermissionBo;
 import com.sojson.permission.service.PermissionService;
+
+import javax.annotation.Resource;
+
 @Service
 public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> implements PermissionService {
 
-	@Autowired
-	UPermissionMapper permissionMapper;
+	@Resource
+	private UPermissionMapper permissionMapper;
 	@Autowired
 	UUserMapper userMapper;
 	@Autowired
@@ -109,8 +112,7 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Pagination<UPermission> findPage(Map<String,Object> resultMap, Integer pageNo,
-			Integer pageSize) {
+	public Pagination<UPermission> findPage(Map<String,Object> resultMap, Integer pageNo, Integer pageSize) {
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
 
@@ -165,8 +167,8 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 		
 		TokenManager.clearUserAuthByUserId(userIds);
 		resultMap.put("count", count);
+
 		return resultMap;
-		
 	}
 
 	@Override
@@ -188,6 +190,4 @@ public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> imp
 	public Set<String> findPermissionByUserId(Long userId) {
 		return permissionMapper.findPermissionByUserId(userId);
 	}
-
-	
 }

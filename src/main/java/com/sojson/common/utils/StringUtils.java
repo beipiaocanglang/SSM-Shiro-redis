@@ -16,16 +16,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import sun.misc.BASE64Decoder;
 
-
-
-
-
-
 /**
  * String工具
  * 主要对 StringUtils 的一些方法进行重写,达到更方便的使用
  * @author zhou-baicheng
- *
  */
 public class StringUtils extends org.apache.commons.lang.StringUtils{
 	
@@ -38,8 +32,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 	public static boolean isBlank(Object...objects){
 		Boolean result = false ;
 		for (Object object : objects) {
-			if(null == object || "".equals(object.toString().trim()) 
-					|| "null".equals(object.toString().trim())){
+			if(null == object || "".equals(object.toString().trim()) || "null".equals(object.toString().trim())){
 				result = true ; 
 				break ; 
 			}
@@ -64,6 +57,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return val.toLowerCase();
 	}
+
 	/**
 	 * 一次性判断多个或单个对象不为空。
 	 * @param objects
@@ -73,22 +67,27 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 	public static boolean isNotBlank(Object...objects){
 		return !isBlank(objects);
 	}
+
 	public static boolean isBlank(String...objects){
 		Object[] object = objects ;
 		return isBlank(object);
 	}
+
 	public static boolean isNotBlank(String...objects){
 		Object[] object = objects ;
 		return !isBlank(object);
 	}
+
 	public static boolean isBlank(String str){
 		Object object = str ;
 		return isBlank(object);
 	}
+
 	public static boolean isNotBlank(String str){
 		Object object = str ;
 		return !isBlank(object);
 	}
+
 	/**
 	 * 判断一个字符串在数组中存在几个
 	 * @param baseStr
@@ -107,6 +106,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return i ;
 	}
+
 	/**
 	 * 判断一个字符串是否为JSONObject,是返回JSONObject,不是返回null
 	 * @param args
@@ -123,6 +123,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return result ;
 		}
 	}
+
 	/**
 	 * 判断一个字符串是否为JSONArray,是返回JSONArray,不是返回null
 	 * @param args
@@ -148,10 +149,9 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}else{
 			return null ;
 		}
-		
 	}
 	public static String trimToEmpty(Object str){
-	  return (isBlank(str) ? "" : str.toString().trim());
+		return (isBlank(str) ? "" : str.toString().trim());
 	}
 	
 	/**
@@ -228,10 +228,8 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 				}
 				value = value.length() > 0 ? value.substring(0,value.length()-1) : value ;
 				result.put(key,value);
-				
 			}
 		}
-    	
     	return result ;
     }
     
@@ -254,6 +252,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
         }
         return s1;
      }
+
     /**
      * 合并数据
      * @param v
@@ -266,6 +265,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
     	return sb.toString() ; 
     }
+
     /**
      * 字符串转urlcode
      * @param value
@@ -281,6 +281,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return null;
 		}    
     }
+
     /**
      * urlcode转字符串
      * @param value
@@ -296,6 +297,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return null;
 		}  
     }
+
     /**
      * 判断字符串是否包含汉字
      * @param txt
@@ -315,6 +317,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
     	}
 		return false;
     }
+
     /**
      * 去掉HTML代码
      * @param news
@@ -330,8 +333,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
       Pattern pattern2 = Pattern.compile("(<[^>]+>)",Pattern.DOTALL);
       Matcher matcher2 = pattern2.matcher(str);
       String strhttp = matcher2.replaceAll(" ");
-      
-      
+
       String regEx = "(((http|https|ftp)(\\s)*((\\:)|：))(\\s)*(//|//)(\\s)*)?"
          + "([\\sa-zA-Z0-9(\\.|．)(\\s)*\\-]+((\\:)|(:)[\\sa-zA-Z0-9(\\.|．)&%\\$\\-]+)*@(\\s)*)?"
          + "("
@@ -346,18 +348,15 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
       Pattern p1 = Pattern.compile(regEx,Pattern.DOTALL);
       Matcher matchhttp = p1.matcher(strhttp);
       String strnew = matchhttp.replaceAll("").replaceAll("(if[\\s]*\\(|else|elseif[\\s]*\\().*?;", " ");
-      
-      
+
       Pattern patterncomma = Pattern.compile("(&[^;]+;)",Pattern.DOTALL);
       Matcher matchercomma = patterncomma.matcher(strnew);
       String strout = matchercomma.replaceAll(" ");
-      String answer = strout.replaceAll("[\\pP‘’“”]", " ")
-        .replaceAll("\r", " ").replaceAll("\n", " ")
-        .replaceAll("\\s", " ").replaceAll("　", "");
+      String answer = strout.replaceAll("[\\pP‘’“”]", " ").replaceAll("\r", " ").replaceAll("\n", " ").replaceAll("\\s", " ").replaceAll("　", "");
 
-      
       return answer;
     }
+
     /**
 	 * 把数组的空数据去掉
 	 * @param array
@@ -372,6 +371,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return list;
 	}
+
 	/**
 	 * 把数组转换成set
 	 * @param array
@@ -386,6 +386,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return set;
 	}
+
 	/**
 	 * serializable toString
 	 * @param serializable
@@ -401,5 +402,4 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return serializable.toString();
 		}
 	}
-   
 }

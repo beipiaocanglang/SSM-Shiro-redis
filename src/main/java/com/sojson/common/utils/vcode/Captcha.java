@@ -33,38 +33,6 @@ public abstract class Captcha extends Randoms {
 		return cs;
 	}
 
-	public Font getFont() {
-		return font;
-	}
-
-	public void setFont(Font font) {
-		this.font = font;
-	}
-
-	public int getLen() {
-		return len;
-	}
-
-	public void setLen(int len) {
-		this.len = len;
-	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
 	/**
 	 * 给定范围获得随机颜色
 	 * 
@@ -85,7 +53,7 @@ public abstract class Captcha extends Randoms {
 	 * 验证码输出,抽象方法，由子类实现
 	 * 
 	 * @param os
-	 *            输出流
+	 * 输出流
 	 */
 	public abstract void out(OutputStream os);
 
@@ -96,5 +64,30 @@ public abstract class Captcha extends Randoms {
 	 */
 	public String text() {
 		return chars;
+	}
+
+	public Font getFont() {
+		return font;
+	}
+	public void setFont(Font font) {
+		this.font = font;
+	}
+	public int getLen() {
+		return len;
+	}
+	public void setLen(int len) {
+		this.len = len;
+	}
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		this.height = height;
 	}
 }

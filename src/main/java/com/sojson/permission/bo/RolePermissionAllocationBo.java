@@ -58,6 +58,4 @@ public class RolePermissionAllocationBo implements Serializable {
 	public void setPermissionIds(String permissionIds) {
 		this.permissionIds = permissionIds;
 	}
-	
-	
 }

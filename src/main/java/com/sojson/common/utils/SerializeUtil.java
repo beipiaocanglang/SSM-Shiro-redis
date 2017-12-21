@@ -10,23 +10,9 @@ import java.io.ObjectOutputStream;
 import net.sf.json.JSONObject;
 
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
- * Java原生版的 Serialize
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
- *
  * @author zhou-baicheng
  * @email  so@sojson.com
  * @version 1.0,2016年6月2日 <br/>
- * 
  */
 @SuppressWarnings("unchecked")
 public class SerializeUtil {
@@ -55,7 +41,6 @@ public class SerializeUtil {
         return rv;
     }
 
-    
 	public static Object deserialize(byte[] in) {
         return deserialize(in, Object.class);
     }
@@ -80,12 +65,12 @@ public class SerializeUtil {
     }
 
     private static void close(Closeable closeable) {
-        if (closeable != null)
+        if (closeable != null){
             try {
                 closeable.close();
             } catch (IOException e) {
-            	 LoggerUtils.fmtError(CLAZZ, "close stream error");
+                LoggerUtils.fmtError(CLAZZ, "close stream error");
             }
+        }
     }
-
 }

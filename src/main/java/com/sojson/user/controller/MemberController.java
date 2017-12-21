@@ -50,6 +50,7 @@ public class MemberController extends BaseController {
 	CustomSessionManager customSessionManager;
 	@Autowired
 	UUserService userService;
+
 	/**
 	 * 用户列表管理
 	 * @return
@@ -62,6 +63,7 @@ public class MemberController extends BaseController {
 		map.put("page", page);
 		return new ModelAndView("member/list");
 	}
+
 	/**
 	 * 在线用户管理
 	 * @return
@@ -71,6 +73,7 @@ public class MemberController extends BaseController {
 		List<UserOnlineBo> list = customSessionManager.getAllUser();
 		return new ModelAndView("member/online","list",list);
 	}
+
 	/**
 	 * 在线用户详情
 	 * @return
@@ -80,10 +83,11 @@ public class MemberController extends BaseController {
 		UserOnlineBo bo = customSessionManager.getSession(sessionId);
 		return new ModelAndView("member/onlineDetails","bo",bo);
 	}
+
 	/**
 	 * 改变Session状态
 	 * @param status
-	 * @param sessionId
+	 * @param sessionIds
 	 * @return
 	 */
 	@RequestMapping(value="changeSessionStatus",method=RequestMethod.POST)
@@ -91,6 +95,7 @@ public class MemberController extends BaseController {
 	public Map<String,Object> changeSessionStatus(Boolean status,String sessionIds){
 		return customSessionManager.changeSessionStatus(status,sessionIds);
 	}
+
 	/**
 	 * 根据ID删除，
 	 * @param ids	如果有多个，以“,”间隔。
@@ -101,6 +106,7 @@ public class MemberController extends BaseController {
 	public Map<String,Object> deleteUserById(String ids){
 		return userService.deleteUserById(ids);
 	}
+
 	/**
 	 * 禁止登录
 	 * @param id		用户ID
@@ -112,5 +118,4 @@ public class MemberController extends BaseController {
 	public Map<String,Object> forbidUserById(Long id,Long status){
 		return userService.updateForbidUserById(id,status);
 	}
-	
 }

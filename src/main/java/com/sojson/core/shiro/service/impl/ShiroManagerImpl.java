@@ -74,7 +74,6 @@ public class ShiroManagerImpl implements ShiroManager {
 		}
 		
 		return sb.toString();
-
 	}
 
 	// 此方法加同步锁
@@ -89,10 +88,9 @@ public class ShiroManagerImpl implements ShiroManager {
 			throw new RuntimeException("get ShiroFilter from shiroFilterFactoryBean error!");
 		}
 
-		PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter
-				.getFilterChainResolver();
-		DefaultFilterChainManager manager = (DefaultFilterChainManager) filterChainResolver
-				.getFilterChainManager();
+		PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter.getFilterChainResolver();
+
+		DefaultFilterChainManager manager = (DefaultFilterChainManager) filterChainResolver.getFilterChainManager();
 
 		// 清空老的权限控制
 		manager.getFilterChains().clear();
@@ -107,11 +105,10 @@ public class ShiroManagerImpl implements ShiroManager {
 			String chainDefinition = entry.getValue().trim().replace(" ", "");
 			manager.createChain(url, chainDefinition);
 		}
-
 	}
+
 	public void setShiroFilterFactoryBean(
 			ShiroFilterFactoryBean shiroFilterFactoryBean) {
 		this.shiroFilterFactoryBean = shiroFilterFactoryBean;
 	}
-
 }

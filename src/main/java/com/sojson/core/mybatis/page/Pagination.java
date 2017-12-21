@@ -22,11 +22,9 @@ import java.util.List;
  * 
  */
 @SuppressWarnings("serial")
-public class Pagination<T> extends SimplePage implements java.io.Serializable,
-		Paginable {
+public class Pagination<T> extends SimplePage implements java.io.Serializable, Paginable {
 
-	public Pagination() {
-	}
+	public Pagination() { }
 
 	public Pagination(int pageNo, int pageSize, int totalCount) {
 		super(pageNo, pageSize, totalCount);
@@ -55,7 +53,6 @@ public class Pagination<T> extends SimplePage implements java.io.Serializable,
 		this.list = list;
 	}
 
-	
 	/**SOJSON SEO 翻页版本*/
 	public String getWebPage(String page){
 		StringBuffer pageHtml = new StringBuffer("<ul class='pagination'>");
@@ -78,9 +75,7 @@ public class Pagination<T> extends SimplePage implements java.io.Serializable,
 		pageHtml.append("</ul>");
 		return pageHtml.toString();
 	}
-	
-	
-	
+
 	/**Ajxa翻页*/
 	public String getSiAjaxPageHtml(){
 		StringBuffer pageHtml = new StringBuffer("<ul class='pagination'>");
@@ -132,6 +127,4 @@ public class Pagination<T> extends SimplePage implements java.io.Serializable,
 		
 		return pageHtml.toString();
 	}
-	
-	
 }

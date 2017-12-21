@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import com.sojson.permission.service.RoleService;
 
-
 /**
  * 定时任务恢复数据
  *
@@ -19,6 +18,7 @@ public class ToTimer{
 	
 	@Resource
 	RoleService roleService;
+
 	@Scheduled(cron = "0/20 * * * * ? ")
 	public void run() {
 		/**
@@ -27,11 +27,4 @@ public class ToTimer{
 		roleService.initData();
 		System.out.println(new Date().getTime());
 	}
-
-	
-	
-	
-	
-	
-	
 }

@@ -48,6 +48,7 @@ public class UserCoreController extends BaseController {
 
 	@Resource
 	UUserService userService;
+
 	/**
 	 * 个人资料
 	 * @return
@@ -57,8 +58,7 @@ public class UserCoreController extends BaseController {
 		
 		return new ModelAndView("user/index");
 	}
-	
-	
+
 	/**
 	 * 偷懒一下，通用页面跳转
 	 * @param page
@@ -68,6 +68,7 @@ public class UserCoreController extends BaseController {
 	public ModelAndView toPage(@PathVariable("page")String page){
 		return new ModelAndView(String.format("user/%s", page));
 	}
+
 	/**
 	 * 密码修改
 	 * @return
@@ -78,7 +79,7 @@ public class UserCoreController extends BaseController {
 		//根据当前登录的用户帐号 + 老密码，查询。
 		String email = TokenManager.getToken().getEmail();
 				pswd = UserManager.md5Pswd(email, pswd);
-		UUser	user = userService.login(email, pswd);
+		UUser user = userService.login(email, pswd);
 		
 		if("admin".equals(email)){
 			resultMap.put("status", 300);
@@ -102,6 +103,7 @@ public class UserCoreController extends BaseController {
 		}
 		return resultMap;
 	}
+
 	/**
 	 * 个人资料修改
 	 * @return
