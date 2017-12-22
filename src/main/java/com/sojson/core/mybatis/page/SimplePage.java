@@ -4,7 +4,8 @@ public class SimplePage implements Paginable {
 	private static final long serialVersionUID = 1L;
 	public static final int DEF_COUNT = 20;
 
-	public SimplePage() { }
+	public SimplePage() {
+	}
 
 	public SimplePage(int pageNo, int pageSize, int totalCount) {
 		if (totalCount <= 0) {
@@ -107,13 +108,19 @@ public class SimplePage implements Paginable {
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
-
+	
+	
 	protected int filterNo;
 
 	public int getFilterNo() {
 		return filterNo;
 	}
+
 	public void setFilterNo(int filterNo) {
 		this.filterNo = filterNo;
 	}
+
+
+	
+	
 }

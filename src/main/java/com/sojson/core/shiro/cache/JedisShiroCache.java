@@ -127,4 +127,5 @@ public class JedisShiroCache<K, V> implements Cache<K, V> {
     private String buildCacheKey(Object key) {
         return REDIS_SHIRO_CACHE + getName() + ":" + key;
     }
+
 }

@@ -22,7 +22,6 @@ public class UserManager {
 		user.setPswd(md5Pswd(user.getEmail(),user.getPswd()));
 		return user;
 	}
-
 	/**
 	 * 字符串返回值
 	 * @param email
@@ -34,7 +33,6 @@ public class UserManager {
 		pswd = MathUtil.getMD5(pswd);
 		return pswd;
 	}
-
 	/**
 	 * 把查询出来的roles 转换成bootstarp 的 tree数据
 	 * @param roles
@@ -64,5 +62,8 @@ public class UserManager {
 			resultData.add(map);
 		}
 		return resultData;
+		
 	}
+	
+	
 }

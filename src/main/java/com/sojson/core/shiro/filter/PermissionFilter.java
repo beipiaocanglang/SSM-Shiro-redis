@@ -35,7 +35,9 @@ import com.sojson.common.utils.LoggerUtils;
  */
 public class PermissionFilter extends AccessControlFilter {
 	@Override
-	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+	protected boolean isAccessAllowed(ServletRequest request,
+			ServletResponse response, Object mappedValue) throws Exception {
+		
 		//先判断带参数的权限判断
 		Subject subject = getSubject(request, response);
 		if(null != mappedValue){
@@ -73,19 +75,21 @@ public class PermissionFilter extends AccessControlFilter {
 	}
 
 	@Override
-	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+	protected boolean onAccessDenied(ServletRequest request,
+			ServletResponse response) throws Exception {
 		
-		Subject subject = getSubject(request, response);
-		if (null == subject.getPrincipal()) {//表示没有登录，重定向到登录页面
-			saveRequest(request);
-			WebUtils.issueRedirect(request, response, ShiroFilterUtils.LOGIN_URL);
-		} else {
-			if (StringUtils.hasText(ShiroFilterUtils.UNAUTHORIZED)) {//如果有未授权页面跳转过去
-				WebUtils.issueRedirect(request, response, ShiroFilterUtils.UNAUTHORIZED);
-			} else {//否则返回401未授权状态码
-				WebUtils.toHttp(response).sendError(HttpServletResponse.SC_UNAUTHORIZED);
-			}
-		}
+			Subject subject = getSubject(request, response);  
+	        if (null == subject.getPrincipal()) {//表示没有登录，重定向到登录页面  
+	            saveRequest(request);  
+	            WebUtils.issueRedirect(request, response, ShiroFilterUtils.LOGIN_URL);  
+	        } else {  
+	            if (StringUtils.hasText(ShiroFilterUtils.UNAUTHORIZED)) {//如果有未授权页面跳转过去  
+	                WebUtils.issueRedirect(request, response, ShiroFilterUtils.UNAUTHORIZED);  
+	            } else {//否则返回401未授权状态码  
+	                WebUtils.toHttp(response).sendError(HttpServletResponse.SC_UNAUTHORIZED);  
+	            }  
+	        }  
 		return Boolean.FALSE;
 	}
+
 }

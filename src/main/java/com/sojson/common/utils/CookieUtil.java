@@ -1,9 +1,23 @@
 package com.sojson.common.utils;
 
 /**
+ * 
+ * 开发公司：SOJSON在线工具 <p>
+ * 版权所有：© www.sojson.com<p>
+ * 博客地址：http://www.sojson.com/blog/  <p>
+ * <p>
+ * 
+ * Cookie工具
+ * 
+ * <p>
+ * 
+ * 区分　责任人　日期　　　　说明<br/>
+ * 创建　周柏成　2016年6月2日 　<br/>
+ *
  * @author zhou-baicheng
  * @email  so@sojson.com
  * @version 1.0,2016年6月2日 <br/>
+ * 
  */
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +36,8 @@ public class CookieUtil {
 	 * @param maxAge
 	 *            cookie生命周期 以秒为单位
 	 */
-	public static void addCookie(HttpServletResponse response, String name, String value, int maxAge) {
+	public static void addCookie(HttpServletResponse response, String name,
+			String value, int maxAge) {
 		try {
 			Cookie cookie = new Cookie(name, value);
 			if (maxAge > 0)
@@ -42,7 +57,8 @@ public class CookieUtil {
 	 * @return boolean
 	 * @author JIANG FEI Jun 19, 2014 10:12:17 AM
 	 */
-	public static boolean clearCookie(HttpServletRequest request, HttpServletResponse response, String name) {
+	public static boolean clearCookie(HttpServletRequest request,
+			HttpServletResponse response, String name) {
 		boolean bool = false;
 		Cookie[] cookies = request.getCookies();
 		if(null == cookies || cookies.length == 0) return bool;
@@ -95,7 +111,8 @@ public class CookieUtil {
 	 * @param name
 	 * @return String
 	 */
-	public static String findCookieByName(HttpServletRequest request, String name) {
+	public static String findCookieByName(HttpServletRequest request,
+			String name) {
 		Cookie[] cookies = request.getCookies();
 		if(null == cookies || cookies.length == 0) return null;
 		String string = null;
@@ -113,4 +130,5 @@ public class CookieUtil {
 		}
 		return string;
 	}
+
 }

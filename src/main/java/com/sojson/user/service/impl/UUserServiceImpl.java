@@ -82,7 +82,8 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Pagination<UUser> findByPage(Map<String, Object> resultMap, Integer pageNo, Integer pageSize) {
+	public Pagination<UUser> findByPage(Map<String, Object> resultMap,
+			Integer pageNo, Integer pageSize) {
 		return super.findPage(resultMap, pageNo, pageSize);
 	}
 
@@ -134,7 +135,8 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Pagination<UserRoleAllocationBo> findUserAndRole(ModelMap modelMap, Integer pageNo, Integer pageSize) {
+	public Pagination<UserRoleAllocationBo> findUserAndRole(ModelMap modelMap,
+			Integer pageNo, Integer pageSize) {
 		return super.findPage("findUserAndRole", "findCount", modelMap, pageNo, pageSize);
 	}
 
@@ -195,5 +197,9 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 			resultMap.put("message", "操作失败，请重试！");
 		}
 		return resultMap;
+	
 	}
+	
+	
+	
 }

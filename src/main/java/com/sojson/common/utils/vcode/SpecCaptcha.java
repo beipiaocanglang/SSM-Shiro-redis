@@ -14,24 +14,24 @@ import javax.imageio.ImageIO;
  * @author: wuhongjun
  * @version:1.0
  */
-public class SpecCaptcha extends Captcha {
-    public SpecCaptcha() {}
-
-    public SpecCaptcha(int width, int height) {
+public class SpecCaptcha extends Captcha
+{
+    public SpecCaptcha()
+    {
+    }
+    public SpecCaptcha(int width, int height)
+    {
         this.width = width;
         this.height = height;
     }
-
     public SpecCaptcha(int width, int height, int len){
         this(width,height);
         this.len = len;
     }
-
     public SpecCaptcha(int width, int height, int len, Font font){
         this(width,height,len);
         this.font = font;
     }
-
     /**
      * 生成验证码
      * @throws java.io.IOException IO异常
@@ -48,7 +48,8 @@ public class SpecCaptcha extends Captcha {
      */
     private boolean graphicsImage(char[] strs, OutputStream out){
         boolean ok = false;
-        try {
+        try
+        {
             BufferedImage bi = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
             Graphics2D g = (Graphics2D)bi.getGraphics();
             AlphaComposite ac3;
@@ -68,7 +69,8 @@ public class SpecCaptcha extends Captcha {
                 w = width/len,
                 size = w-font.getSize()+1;
             /* 画字符串 */
-            for(int i=0;i<len;i++) {
+            for(int i=0;i<len;i++)
+            {
                 ac3 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.7f);// 指定透明度
                 g.setComposite(ac3);
                 color = new Color(20 + num(110), 20 + num(110), 20 + num(110));// 对每个字符都用随机颜色
@@ -82,7 +84,8 @@ public class SpecCaptcha extends Captcha {
             ok = true;
         }catch (IOException e){
             ok = false;
-        }finally {
+        }finally
+        {
         	try {
 				out.close();
 			} catch (IOException e) {

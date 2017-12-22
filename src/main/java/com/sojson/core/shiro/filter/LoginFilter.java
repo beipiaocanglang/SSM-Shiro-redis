@@ -33,7 +33,8 @@ import com.sojson.core.shiro.token.manager.TokenManager;
 public class LoginFilter  extends AccessControlFilter {
 	final static Class<LoginFilter> CLASS = LoginFilter.class;
 	@Override
-	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+	protected boolean isAccessAllowed(ServletRequest request,
+			ServletResponse response, Object mappedValue) throws Exception {
 		
 		UUser token = TokenManager.getToken();
 		
@@ -58,4 +59,6 @@ public class LoginFilter  extends AccessControlFilter {
 		saveRequestAndRedirectToLogin(request, response);
 		return Boolean.FALSE ;
 	}
+	
+
 }

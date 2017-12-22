@@ -17,9 +17,23 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 
 /**
+ * 
+ * 开发公司：SOJSON在线工具 <p>
+ * 版权所有：© www.sojson.com<p>
+ * 博客地址：http://www.sojson.com/blog/  <p>
+ * <p>
+ * 
+ * 封装PostMethod
+ * 
+ * <p>
+ * 
+ * 区分　责任人　日期　　　　说明<br/>
+ * 创建　周柏成　2016年6月2日 　<br/>
+ *
  * @author zhou-baicheng
  * @email  so@sojson.com
  * @version 1.0,2016年6月2日 <br/>
+ * 
  */
 public class VinuxPostMethod extends PostMethod {
 
@@ -173,8 +187,10 @@ public class VinuxPostMethod extends PostMethod {
 		}
 	}
 
-	//***********************构造方法begin***********************
-	public VinuxPostMethod() {
+	/**
+	 * 构造方法begin
+	 */
+	 public VinuxPostMethod() {
 		 super();
 	 }
 	public VinuxPostMethod(String url) {
@@ -220,7 +236,12 @@ public class VinuxPostMethod extends PostMethod {
 		super(url);
 		this.setJSONArrayParameter(parameter);
 	}
-	//***********************构造方法end***********************
+	
+	
+	/**
+	 * 构造方法end
+	 */
+	
 
 	public Map<String, String> getHead() {
 		return head;
@@ -237,7 +258,8 @@ public class VinuxPostMethod extends PostMethod {
 	public void setTimeOut(int timeOut) {
 		this.timeOut = timeOut;
 	}
-
+	
+	
 	public JsonConfig getConfig(){
 		JsonConfig config = new JsonConfig();
 		// 实现属性过滤器接口并重写apply()方法

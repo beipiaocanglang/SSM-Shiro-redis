@@ -57,6 +57,7 @@ public class Ferrmarker {
 	private static Configuration cfg = null;
 	private static Log logger = LogFactory.getLog(Ferrmarker.class);
 	
+	
 	static Map<String,Object> initMap;
 	
 	static {
@@ -105,14 +106,16 @@ public class Ferrmarker {
 		}
 		*/
 	}
-
+	
+	
+	
 	/**
 	 * 
 	 * @param path 模版路径
 	 * @param inFile 模版文件
 	 * @param outPath 输出html路径
 	 * @param outFile 输出html NAME+后缀
-	 * @param outMap 只是一个传值的对象，可以为空
+	 * @param map 只是一个传值的对象，可以为空
 	 * @throws IOException 
 	 * @throws TemplateException 
 	 * @throws Exception
@@ -153,6 +156,7 @@ public class Ferrmarker {
 				logger.error("创建 ["+ outFile +"] . io close exception" + e.getMessage());
 			}
 		}
+		
 	}
 	/**
 	 * 交给子类实现
@@ -161,6 +165,8 @@ public class Ferrmarker {
 	protected Map<String,Object> doOutMap(Map<String, Object> outMap){
 		return new HashMap<String, Object>();
 	};
+	
+	
 	
 	/**备份原来HTML*/
 	public static void bakFile(String fileName){
@@ -182,4 +188,11 @@ public class Ferrmarker {
 			}
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
 }

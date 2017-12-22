@@ -25,10 +25,10 @@ public class UPermissionBo extends UPermission implements Serializable {
 	public boolean isCheck(){
 		return StringUtils.equals(roleId,marker);
 	}
-
 	public String getMarker() {
 		return marker;
 	}
+
 	public void setMarker(String marker) {
 		this.marker = marker;
 	}
@@ -38,4 +38,5 @@ public class UPermissionBo extends UPermission implements Serializable {
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
+	
 }

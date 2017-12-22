@@ -56,7 +56,6 @@ public class PermissionController extends BaseController {
 		Pagination<UPermission> permissions = permissionService.findPage(modelMap,pageNo,pageSize);
 		return new ModelAndView("permission/index","page",permissions);
 	}
-
 	/**
 	 * 权限添加
 	 * @param psermission
@@ -76,7 +75,6 @@ public class PermissionController extends BaseController {
 		}
 		return resultMap;
 	}
-
 	/**
 	 * 删除权限，根据ID，但是删除权限的时候，需要查询是否有赋予给角色，如果有角色在使用，那么就不能删除。
 	 * @param ids

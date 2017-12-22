@@ -110,7 +110,6 @@ public class CustomSessionManager {
 		UserOnlineBo bo = getSessionBo(session);
 		return bo;
 	}
-
 	private UserOnlineBo getSessionBo(Session session){
 		//获取session登录信息。
 		Object obj = session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
@@ -155,10 +154,11 @@ public class CustomSessionManager {
 	/**
 	 * 改变Session状态
 	 * @param status {true:踢出,false:激活}
-	 * @param sessionIds
+	 * @param sessionId
 	 * @return
 	 */
-	public Map<String, Object> changeSessionStatus(Boolean status, String sessionIds) {
+	public Map<String, Object> changeSessionStatus(Boolean status,
+			String sessionIds) {
 		Map<String,Object> map = new HashMap<String,Object>();
 		try {
 			String[] sessionIdArray = null;
@@ -185,7 +185,6 @@ public class CustomSessionManager {
 		}
 		return map;
 	}
-
 	/**
 	 * 查询要禁用的用户是否在线。
 	 * @param id		用户ID
@@ -208,7 +207,8 @@ public class CustomSessionManager {
 			}
 		}
 	}
-	public void setShiroSessionRepository(ShiroSessionRepository shiroSessionRepository) {
+	public void setShiroSessionRepository(
+			ShiroSessionRepository shiroSessionRepository) {
 		this.shiroSessionRepository = shiroSessionRepository;
 	}
 

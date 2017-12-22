@@ -52,7 +52,8 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @param pageSize		size
 	 * @return
 	 */
-	public Pagination findByPageBySqlId(String sqlId, Map<String, Object> params, Integer pageNo, Integer pageSize) {
+	public Pagination findByPageBySqlId(String sqlId,
+			Map<String, Object> params, Integer pageNo, Integer pageSize) {
 
 		pageNo = null == pageNo ? 1 : pageNo;
 		pageSize = null == pageSize ? 10 : pageSize;
@@ -136,9 +137,11 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @param params
 	 * @param pageNo
 	 * @param pageSize
+	 * @param requiredType	返回的类型[可以不传参]
 	 * @return
 	 */
-	public List findList(Map<String, Object> params, Integer pageNo, Integer pageSize) {
+	public List findList(Map<String, Object> params, Integer pageNo,
+			Integer pageSize) {
 		return findList(DEFAULT_SQL_ID, params, pageNo, pageSize);
 	}
 
@@ -153,10 +156,12 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 *            参数
 	 * @param pageNo
 	 *            第几页
-	 * @param pageSize 每页显示多少条
+	 * @param pageSize每页显示多少条
+	 * @param requiredType	返回的类型[可以不传参]
 	 * @return
 	 */
-	public Pagination findPage(String sqlId, String countId, Map<String, Object> params, Integer pageNo, Integer pageSize) {
+	public Pagination findPage(String sqlId, String countId,
+			Map<String, Object> params, Integer pageNo, Integer pageSize) {
 		pageNo = null == pageNo ? 1 : pageNo;
 		pageSize = null == pageSize ? 10 : pageSize;
 		Pagination page = new Pagination();
@@ -204,6 +209,7 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 			LoggerUtils.error(SELF, "jdbc.error.code.findByPageBySqlId",e);
 		}
 		return page;
+
 	}
 	/**
 	 * 重载减少参数DEFAULT_SQL_ID, "findCount"
@@ -213,7 +219,8 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @param pageSize
 	 * @return
 	 */
-	public Pagination findPage(Map<String, Object> params, Integer pageNo, Integer pageSize) {
+	public Pagination findPage(Map<String, Object> params, Integer pageNo,
+			Integer pageSize) {
 
 		return findPage(DEFAULT_SQL_ID, DEFAULT_COUNT_SQL_ID, params, pageNo, pageSize);
 	}
@@ -226,7 +233,8 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	private PreparedStatement getPreparedStatement(String sql, List<ParameterMapping> parameterMappingList,
+	private PreparedStatement getPreparedStatement(String sql,
+			List<ParameterMapping> parameterMappingList,
 			Map<String, Object> params, Connection conn) throws SQLException {
 		/**
 		 * 分页根据数据库分页
@@ -250,9 +258,9 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	private PreparedStatement getPreparedStatement4Count(String sql, List<ParameterMapping> parameterMappingList,
+	private PreparedStatement getPreparedStatement4Count(String sql,
+			List<ParameterMapping> parameterMappingList,
 			Map<String, Object> params, Connection conn) throws SQLException {
-
 		PreparedStatement ps = conn.prepareStatement(StringUtils.trim(sql));
 		int index = 1;
 		for (int i = 0; i < parameterMappingList.size(); i++) {
@@ -261,4 +269,6 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 		}
 		return ps;
 	}
+	
+
 }

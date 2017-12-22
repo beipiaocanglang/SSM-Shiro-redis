@@ -10,6 +10,17 @@ import org.apache.commons.lang.StringUtils;
 
 
 /**
+ * 
+ * 静态化路径工具类
+ * 
+ * <p>
+ * 
+ * <p>
+ * 
+ * 区分　责任人　日期　　　　说明<br/>
+ * 创建　周柏成　2013-6-11　<br/>
+ * <p>
+ * 
  * @author
  * 
  * @version 1.0, 2013-6-11
@@ -31,7 +42,6 @@ public class UtilPath {
 			return UtilPath.class.getResource("/").getFile().toString();
 		}
 	}
-
 	/**
 	 * 获取当前对象的路径
 	 * @param object
@@ -40,7 +50,6 @@ public class UtilPath {
 	public static String getObjectPath(Object object){
 		return object.getClass().getResource(".").getFile().toString();
 	}
-
 	/**
 	 * 获取到项目的路径
 	 * @return path
@@ -48,7 +57,6 @@ public class UtilPath {
 	public static String getProjectPath(){
 		return System.getProperty("user.dir");
 	}
-
 	/**
 	 * 获取 root目录
 	 * @return path
@@ -56,7 +64,6 @@ public class UtilPath {
 	public static String getRootPath(){
 		return getWEB_INF().replace("WEB-INF/", "");
 	}
-
 	/**
 	 * 获取输出HTML目录
 	 * @return
@@ -64,7 +71,6 @@ public class UtilPath {
 	public static String getHTMLPath(){
 		return getFreePath() + "html/html/";
 	}
-
 	/**
 	 * 获取输出FTL目录
 	 * @return
@@ -72,7 +78,6 @@ public class UtilPath {
 	public static String getFTLPath(){
 		return getFreePath() + "html/ftl/";
 	}
-
 	/**
 	 * 获取 web-inf目录
 	 * @return path
@@ -80,7 +85,6 @@ public class UtilPath {
 	public static String getWEB_INF(){
 		return getClassPath().replace("classes/", "");
 	}
-
 	/**
 	 * 获取模版文件夹路径
 	 * @return path
@@ -88,19 +92,16 @@ public class UtilPath {
 	public static String getFreePath(){
 		return getWEB_INF() + "ftl/";
 	}
-
 	/**
 	 * 获取一个目录下所有的文件
 	 * @param path
 	 * @return
 	 */
-
 	public static  File[] getFiles(String path){
-		File file = new File(path);
-		File[] files = file.listFiles();
-		return files;
+		  File file = new File(path);
+		  File[] files = file.listFiles();
+		  return files;
 	}
-
 	/**
 	 * 获取当前时间 + 中国时区
 	 * @return
@@ -112,7 +113,6 @@ public class UtilPath {
 		result += "+08:00";
 		return result;
 	}
-
 	/**
 	 * 不带结尾的XmlSitemap头部
 	 * @return
@@ -124,7 +124,6 @@ public class UtilPath {
 		.append("<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">"+ nextLine());
 		return sb.toString();
 	}
-
 	/**
 	 * 文本换行
 	 * @return
@@ -133,7 +132,6 @@ public class UtilPath {
 		 String nextLine = System.getProperty("line.separator");
 		 return nextLine;
 	}
-
 	/**
 	 * 获取domain
 	 * @param request
@@ -142,7 +140,6 @@ public class UtilPath {
 	public static String getDomain(HttpServletRequest request) {
 		return  ((String) request.getSession().getAttribute("nowPath")).replaceAll("(www.)|(.com)|(.net)|(http://)", "").trim();
 	}
-
 	/**
 	 * 获取images 路径
 	 * @return
@@ -150,4 +147,5 @@ public class UtilPath {
 	public static String getImages(){
 		return getRootPath() + "images/" ;
 	}
+	
 }

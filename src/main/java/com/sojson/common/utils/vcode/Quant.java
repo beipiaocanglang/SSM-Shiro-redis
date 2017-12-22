@@ -6,7 +6,8 @@ package com.sojson.common.utils.vcode;
  * @author: wuhongjun
  * @version:1.0
  */
-public class Quant {
+public class Quant
+{
     protected static final int netsize = 256; /* number of colours used */
 
     /* four primes near 500 - assume no image has a length so large */
@@ -45,7 +46,8 @@ public class Quant {
     protected static final int gamma = (((int) 1) << gammashift);
     protected static final int betashift = 10;
     protected static final int beta = (intbias >> betashift); /* beta = 1/1024 */
-    protected static final int betagamma = (intbias << (gammashift - betashift));
+    protected static final int betagamma =
+            (intbias << (gammashift - betashift));
 
     /* defs for decreasing radius factor */
     protected static final int initrad = (netsize >> 3); /* for 256 cols, radius starts */

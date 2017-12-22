@@ -30,10 +30,8 @@ import com.sojson.permission.service.RoleService;
 @Scope(value="prototype")
 @RequestMapping("open")
 public class CommonController extends BaseController {
-
 	@Resource
 	RoleService roleService;
-
 	@RequestMapping("refreshDB")
 	@ResponseBody
 	public Map<String,Object> refreshDB(){
@@ -41,7 +39,6 @@ public class CommonController extends BaseController {
 		resultMap.put("status", 200);
 		return resultMap;
 	}
-
 	/**
 	 * 404错误
 	 * @param request
@@ -52,7 +49,6 @@ public class CommonController extends BaseController {
 		ModelAndView view = new ModelAndView("common/404");
 		return view;
 	}
-
 	/**
 	 * 500错误
 	 * @param request

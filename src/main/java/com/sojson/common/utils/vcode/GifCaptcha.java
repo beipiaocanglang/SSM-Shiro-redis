@@ -12,8 +12,11 @@ import java.io.OutputStream;
  * @author: wuhongjun
  * @version:1.0
  */
-public class GifCaptcha extends Captcha {
-    public GifCaptcha() {}
+public class GifCaptcha extends Captcha
+{
+    public GifCaptcha()
+    {
+    }
 
     public GifCaptcha(int width,int height){
         this.width = width;
@@ -25,14 +28,17 @@ public class GifCaptcha extends Captcha {
         this.len = len;
     }
 
-    public GifCaptcha(int width,int height,int len,Font font) {
+    public GifCaptcha(int width,int height,int len,Font font)
+    {
         this(width,height,len);
         this.font = font;
     }
 
     @Override
-    public void out(OutputStream os) {
-        try {
+    public void out(OutputStream os)
+    {
+        try
+        {
             GifEncoder gifEncoder = new GifEncoder();   // gif编码类，这个利用了洋人写的编码类，所有类都在附件中
             //生成字符
             gifEncoder.start(os);
@@ -53,13 +59,16 @@ public class GifCaptcha extends Captcha {
                 frame.flush();
             }
             gifEncoder.finish();
-        }finally {
+        }finally
+        {
         	try {
 				os.close();
 			} catch (IOException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
         }
+
     }
 
     /**
@@ -69,7 +78,8 @@ public class GifCaptcha extends Captcha {
      * @param flag 透明度使用
      * @return BufferedImage
      */
-    private BufferedImage graphicsImage(Color[] fontcolor,char[] strs,int flag) {
+    private BufferedImage graphicsImage(Color[] fontcolor,char[] strs,int flag)
+    {
         BufferedImage image = new BufferedImage(width, height,BufferedImage.TYPE_INT_RGB);
         //或得图形上下文
         //Graphics2D g2d=image.createGraphics();
@@ -81,7 +91,8 @@ public class GifCaptcha extends Captcha {
         int h  = height - ((height - font.getSize()) >>1) ;
         int w = width/len;
         g2d.setFont(font);
-        for(int i=0;i<len;i++) {
+        for(int i=0;i<len;i++)
+        {
             ac3 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, getAlpha(flag, i));
             g2d.setComposite(ac3);
             g2d.setColor(fontcolor[i]);
@@ -96,9 +107,11 @@ public class GifCaptcha extends Captcha {
      * 获取透明度,从0到1,自动计算步长
      * @return float 透明度
      */
-    private float getAlpha(int i,int j) {
+    private float getAlpha(int i,int j)
+    {
         int num = i+j;
         float r = (float)1/len,s = (len+1) * r;
         return num > len ? (num *r - s) : num * r;
     }
+
 }

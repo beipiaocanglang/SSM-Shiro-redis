@@ -18,18 +18,36 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.sojson.common.utils.StringUtils;
 
 /**
+ * 
+ * 开发公司：itboy.net<br/>
+ * 版权：itboy.net<br/>
+ * <p>
+ * 
+ * 
+ * 
+ * <p>
+ * 
+ * 区分　责任人　日期　　　　说明<br/>
+ * 创建　周柏成　2016年5月3日 　<br/>
+ * <p>
+ * *******
+ * <p>
  * @author zhou-baicheng
  * @email  i@itboy.net
  * @version 1.0,2016年5月3日 <br/>
+ * 
  */
 public class BaseController {
-	protected final static Logger logger = Logger.getLogger(BaseController.class);
 
+	
 	protected int pageNo =1;
 	public static  int pageSize = 10;
+	protected final static Logger logger = Logger.getLogger(BaseController.class);
 	protected Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 	public static String URL404 =  "/404.html";
+	
 	private final static String PARAM_PAGE_NO = "pageNo";
+	
 	protected String pageSizeName = "pageSize";
 	
 	/**
@@ -51,7 +69,22 @@ public class BaseController {
 		return request.getSession();
 	}
 
+	public int getPageNo() {
+		return pageNo;
+	}
 
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		BaseController.pageSize = pageSize;
+	}
+	
 	public ModelAndView redirect(String redirectUrl,Map<String,Object>...parament){
 		ModelAndView view = new ModelAndView(new RedirectView(redirectUrl));
 		if(null != parament && parament.length > 0){
@@ -59,7 +92,6 @@ public class BaseController {
 		}
 		return view;
 	}
-
 	public ModelAndView redirect404(){
 		return new ModelAndView(new RedirectView(URL404));
 	}
@@ -84,7 +116,6 @@ public class BaseController {
 		//BeanUtils.populate(obj, params);
 		return params;
 	}
-
 	private Map<String, Object> handleParams(Map<String, Object> params) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		if (null != params) {
@@ -99,17 +130,5 @@ public class BaseController {
 		}
 		return result;
 	}
-
-	public int getPageNo() {
-		return pageNo;
-	}
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
-	}
-	public int getPageSize() {
-		return pageSize;
-	}
-	public void setPageSize(int pageSize) {
-		BaseController.pageSize = pageSize;
-	}
+	
 }

@@ -44,10 +44,8 @@ public class PermissionAllocationController extends BaseController {
 	
 	@Autowired
 	PermissionService permissionService;
-
 	@Autowired
 	RoleService roleService;
-
 	/**
 	 * 权限分配
 	 * @param modelMap
@@ -74,7 +72,6 @@ public class PermissionAllocationController extends BaseController {
 		List<UPermissionBo> permissionBos = permissionService.selectPermissionById(id);
 		return permissionBos;
 	}
-
 	/**
 	 * 操作角色的权限
 	 * @param roleId 	角色ID
@@ -86,7 +83,6 @@ public class PermissionAllocationController extends BaseController {
 	public Map<String,Object> addPermission2Role(Long roleId,String ids){
 		return permissionService.addPermission2Role(roleId,ids);
 	}
-
 	/**
 	 * 根据角色id清空权限。
 	 * @param roleIds	角色ID ，以‘,’间隔

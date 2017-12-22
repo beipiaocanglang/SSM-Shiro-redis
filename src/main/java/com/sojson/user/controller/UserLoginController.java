@@ -64,7 +64,6 @@ public class UserLoginController extends BaseController {
 		
 		return new ModelAndView("user/login");
 	}
-
 	/**
 	 * 注册跳转
 	 * @return
@@ -74,7 +73,6 @@ public class UserLoginController extends BaseController {
 		
 		return new ModelAndView("user/register");
 	}
-
 	/**
 	 * 注册 && 登录
 	 * @param vcode		验证码	
@@ -112,7 +110,6 @@ public class UserLoginController extends BaseController {
 		resultMap.put("status", 200);
 		return resultMap;
 	}
-
 	/**
 	 * 登录提交
 	 * @param entity		登录的UUser
@@ -128,6 +125,7 @@ public class UserLoginController extends BaseController {
 			entity = TokenManager.login(entity,rememberMe);
 			resultMap.put("status", 200);
 			resultMap.put("message", "登录成功");
+			
 			
 			/**
 			 * shiro 获取登录之前的地址

@@ -31,11 +31,11 @@ public abstract class SuperCustomTag {
 	 * @return
 	 */
 	protected abstract Object result(Map params);
-
+	
+	
 	/**
 	 * 直接强转报错，需要用Object过度一下
-	 * @param params
-	 * @param key
+	 * @param e
 	 * @return
 	 */
 	protected Long getLong(Map params,String key){
