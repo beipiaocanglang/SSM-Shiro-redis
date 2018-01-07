@@ -4,6 +4,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,10 +13,12 @@
 						http://www.springframework.org/schema/task
 						http://www.springframework.org/schema/task/spring-task-4.0.xsd
 						http://www.springframework.org/schema/mvc
-						http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+						http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- 自动扫描(自动注入) -->
-	<context:component-scan base-package="com.sojson.*.controller;com.sojson.*.tags"/>
+	<context:component-scan base-package="com.sojson"/>
 
 	<!--过滤静态资源-->
 	<mvc:resources mapping="/css/**" location="/css/" />
@@ -30,7 +33,17 @@
 		这个一定得有，注意了，如果其他配置也有需要这个，已经配置了，那不必了
 	-->
 	<mvc:annotation-driven/>
-	
+
+	<!-- Spring 统一日志处理   LogInterceptor拦截器 配置　-->
+	<bean id="logLnterceptor" class="com.sojson.Interceptor.LogInterceptor"/>
+
+	<!-- 方法拦截器（拦截Controller包中的所有被RequestMapping注解的方法） MethodInterceptor -->
+	<aop:config proxy-target-class="true">
+		<!--<aop:pointcut id="controllerMethodPointcut" expression="execution(* com.sojson.*.controller.*.*(..)) and @annotation(org.springframework.web.bind.annotation.RequestMapping)"/>-->
+		<aop:pointcut id="serviceMethodPointcut" expression="execution(* com.sojson.*.service.*.*.*(..))"/>
+		<aop:advisor advice-ref="logLnterceptor" pointcut-ref="serviceMethodPointcut" />
+	</aop:config>
+
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
 		<property name="messageConverters">  
 	        <list>  

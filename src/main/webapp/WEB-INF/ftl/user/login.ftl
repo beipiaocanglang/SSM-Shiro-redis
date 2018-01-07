@@ -28,8 +28,8 @@
             <h1>Login</h1>
             <h1>本项目请使用Tomcat，请勿使用Jetty</h1>
             <form id="_form" action="" method="post">
-                <input type="text" name="account" class="username" placeholder="Account">
-                <input type="password" name="password" class="password" placeholder="Password">
+                <input type="text" name="account" class="username" value="admin" placeholder="Account">
+                <input type="password" name="password" class="password" value="sojson" placeholder="Password">
                 <div style="text-align: left; margin-left: 10px;">
                 <label><input type="checkbox" checked="checked"  id="rememberMe"style="width: 10px; height: 10px;">记住我</label>
                 <p><b style='color:red;'>如果重启Tomcat，还是登录状态，是因为这里勾选了“记住我”。</b></p>
