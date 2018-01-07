@@ -4,7 +4,7 @@
 
 Demo已经部署到线上，地址是http://shiro.itboy.net，
 
-管理员帐号：admin，密码：sojson.com 如果密码错误，请用sojson。
+管理员帐号：admin，密码：sojson.com 如果密码错误，请用sojson
 
 PS：
     你可以注册自己的帐号，然后用管理员赋权限给你自己的帐号，但是，每20分钟会把数据初始化一次。
