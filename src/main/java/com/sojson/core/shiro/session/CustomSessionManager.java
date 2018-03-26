@@ -154,7 +154,7 @@ public class CustomSessionManager {
 	/**
 	 * 改变Session状态
 	 * @param status {true:踢出,false:激活}
-	 * @param sessionId
+	 * @param sessionIds
 	 * @return
 	 */
 	public Map<String, Object> changeSessionStatus(Boolean status,
